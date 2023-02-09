@@ -49,7 +49,10 @@ def createTodaysGames(games, df, odds):
     games_data_frame = pd.concat(match_data, ignore_index=True, axis=1)
     games_data_frame = games_data_frame.T
 
-    frame_ml = games_data_frame.drop(columns=['TEAM_ID', 'CFID', 'CFPARAMS', 'TEAM_NAME'])
+    columns_to_drop = ['TEAM_ID', 'CFID', 'CFPARAMS', 'TEAM_NAME']
+    existing_columns = games_data_frame.columns
+    columns_to_drop = list(set(columns_to_drop).intersection(existing_columns))
+    frame_ml = games_data_frame.drop(columns=columns_to_drop)
     data = frame_ml.values
     data = data.astype(float)
 
