@@ -17,6 +17,8 @@ win_margin = []
 OU = []
 OU_Cover = []
 games = []
+games_rested_away = []
+games_rested_home = []
 teams_con = sqlite3.connect("../../Data/teams.sqlite")
 odds_con = sqlite3.connect("../../Data/odds.sqlite")
 
@@ -46,6 +48,8 @@ for season in tqdm(season_array):
         if len(team_df.index) == 30:
             scores.append(row[9])
             OU.append(row[5])
+            games_rested_away.append(row[11])
+            games_rested_home.append(row[12])
             if row[10] > 0:
                 win_margin.append(1)
             else:
@@ -93,6 +97,8 @@ frame['Score'] = np.asarray(scores)
 frame['Home-Team-Win'] = np.asarray(win_margin)
 frame['OU'] = np.asarray(OU)
 frame['OU-Cover'] = np.asarray(OU_Cover)
+frame['Games-Rested-Away'] = np.asarray(games_rested_away)
+frame['Games-Rested-Home'] = np.asarray(games_rested_home)
 # fix types
 for field in frame.columns.values:
     if 'TEAM_' in field  or 'Date' in field or field not in frame:

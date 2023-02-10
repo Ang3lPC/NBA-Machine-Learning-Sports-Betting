@@ -12,7 +12,7 @@ from src.Utils import Expected_Value
 init()
 xgb_ml = xgb.Booster()
 #xgb_ml.load_model('Models/XGBoost_Models/XGBoost_74.5%_ML.json')
-xgb_ml.load_model('Models/XGBoost_Models/XGBoost_67.6%_ML-2.json')
+xgb_ml.load_model('Models/XGBoost_Models/XGBoost_69.2%_ML-2.json')
 xgb_uo = xgb.Booster()
 #xgb_uo.load_model('Models/XGBoost_Models/XGBoost_57.9%_UO.json')
 xgb_uo.load_model('Models/XGBoost_Models/XGBoost_53.3%_UO-6.json')
@@ -26,6 +26,9 @@ def xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team
 
     frame_uo = copy.deepcopy(frame_ml)
     frame_uo['OU'] = np.asarray(todays_games_uo)
+    # TODO: 
+    # frame_uo['Games-Rested-Away'] = 
+    # frame_uo['Games-Rested-Home'] = 
     data = frame_uo.values
     data = data.astype(float)
 

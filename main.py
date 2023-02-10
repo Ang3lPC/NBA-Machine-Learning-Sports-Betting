@@ -24,6 +24,9 @@ def createTodaysGames(games, df, odds):
     todays_games_uo = []
     home_team_odds = []
     away_team_odds = []
+    # todo: get the days rest for current games
+    home_team_days_rest = []
+    away_team_days_rest = []
 
     for game in games:
         home_team = game[0]
