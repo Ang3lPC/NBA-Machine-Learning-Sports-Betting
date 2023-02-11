@@ -55,10 +55,9 @@ def createTodaysGames(games, df, odds):
         away_team_days_rest.append(away_days_off.days)
         home_team_series = df.iloc[team_index_current.get(home_team)]
         away_team_series = df.iloc[team_index_current.get(away_team)]
-        away_team_series['Games-Rested-Away'] = away_days_off.days
-        home_team_series['Games-Rested-Home'] = home_days_off.days
-
         stats = pd.concat([home_team_series, away_team_series])
+        stats['Games-Rested-Away'] = away_days_off.days
+        stats['Games-Rested-Home'] = home_days_off.days
         match_data.append(stats)
 
     games_data_frame = pd.concat(match_data, ignore_index=True, axis=1)

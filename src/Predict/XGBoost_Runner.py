@@ -24,9 +24,6 @@ def xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team
 
     frame_uo = copy.deepcopy(frame_ml)
     frame_uo['OU'] = np.asarray(todays_games_uo)
-    # TODO: 
-    # frame_uo['Games-Rested-Away'] = 
-    # frame_uo['Games-Rested-Home'] = 
     data = frame_uo.values
     data = data.astype(float)
 
