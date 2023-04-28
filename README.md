@@ -22,7 +22,7 @@ Use Python 3.8. In particular the packages/libraries used are...
 Make sure all packages above are installed.
 
 ```bash
-$ git clone https://github.com/Ang3lPC/NBA-Machine-Learning-Sports-Betting.git
+$ https://github.com/kyleskom/NBA-Machine-Learning-Sports-Betting.git
 $ cd NBA-Machine-Learning-Sports-Betting
 $ pip3 install -r requirements.txt
 $ python3 main.py -xgb
